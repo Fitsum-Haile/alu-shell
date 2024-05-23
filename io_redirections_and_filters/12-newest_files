@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -ltr | head -n 10
+find . -type f -print | sort -nr | head -n 10
