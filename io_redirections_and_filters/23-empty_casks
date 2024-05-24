@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -empty -print0 | sed 's/^\.//' | sort -rz
+find . -empty -printf '%P\n' | sort -r
