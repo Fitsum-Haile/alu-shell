@@ -1,2 +1,2 @@
 #!/bin/bash
-printf "%obesthcol" "$(($(printf "%d" "${WATER//[^0-9]/}" 16) + $(printf "%d" "${STIR//[^0-9]/}" 16)))"
+printf "%10.10o" $((16#${WATER//[^0-9a-f]/} + 16#${STIR//[^0-9a-f]/}))
