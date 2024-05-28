@@ -1,2 +1,2 @@
 #!/bin/bash
-printf "%s" "$(printf '%x' $((16#${WATER//[^0-9a-f]/} + 16#${STIR//[^0-9a-f]/})))" | tr '0123456789abcdef' 'bestchooll'
+echo $(printf %o $(($((5#$(echo $WATER | tr "water" "01234"))) + $((5#$(echo $STIR | tr "stir." "01234"))))) | tr "01234567" "bestchol")
