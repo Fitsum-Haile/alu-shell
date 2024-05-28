@@ -1,2 +1,2 @@
 #!/bin/bash
-printf "%bestchooll" $(($(printf "%d" "${WATER//[^0-9]/}" 5) + $(printf "%d" "${STIR//[^0-9]/}" 5)))
+printf "%s" "$(printf '%x' $((16#${WATER//[^0-9a-f]/} + 16#${STIR//[^0-9a-f]/})))" | tr '0123456789abcdef' 'bestchooll'
