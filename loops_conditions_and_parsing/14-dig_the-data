@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# Group the data by IP and HTTP status code, and sort it
+awk '{print $1, $9}' apache-access.log | sort | awk '
+{
+    key = $1 " " $2;
+    count[key]++;
+}
+END {
+    for (i in count) {
+        print count[i], i;
+    }
+}' | sort -nr | head -n 10
