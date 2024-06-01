@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# 8-for_ls: Displays the content of the current directory in a list format, showing only the part of the name after the first dash
+
+for file in *-*; do
+    echo "${file#*-}"
+done | sort
