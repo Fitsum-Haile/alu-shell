@@ -5,7 +5,7 @@ for file in *
 do
     if [[ "$file" == *"-"* ]]
     then
-        echo "$(basename "$file" | cut -d'-' -f2)"
+        basename "$file" | cut -d'-' -f2
     else
         echo "$file"
     fi
