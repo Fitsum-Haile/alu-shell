@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
-# This script groups visitors by IP and HTTP status code, and displays the data in a formatted list.
+# Explain what the script does
+echo "This script groups visitors by IP and HTTP status code, displaying the data in a formatted list."
 
-data=$(awk '{print $1, $9}' apache_access.log | sort | uniq -c | sort -nr)
-
-echo "$data" | awk '{printf "%4d %s %s\n", $1, $2, $3}'
+awk '{print $1, $9}' apache_access.log |  # Select IP and status code
+sort |  # Sort entries
+uniq -c |  # Count occurrences for each unique combination
+sort -nr |  # Sort by count in descending order
+awk '{printf "%4d %s %s\n", $1, $2, $3}'  # Format output
