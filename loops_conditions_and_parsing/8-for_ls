@@ -1,6 +1,12 @@
 #!/usr/bin/env bash
-# Displays the content of the current directory in a list format, showing only the part of the name after the first dash
+# This script lists the contents of the current directory, displaying only the part of the file name after the first dash
 
-for file in *-*; do
-    echo "file-$(basename "$file" | cut -d'-' -f2)"
+for file in *
+do
+    if [[ "$file" == *"-"* ]]
+    then
+        echo "file-$(basename "$file" | cut -d'-' -f2)"
+    else
+        echo "$file"
+    fi
 done | sort
