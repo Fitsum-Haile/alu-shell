@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 # A script is displaying "Best School" 10 times using the while loop
+a=0
 
-count=1
-
-while [$counter -le 10]
+while [[ $a -le 10 ]]
 do
-	echo "Best School"
-	count=`expr $count + 1` 
+   echo $a
+   a=$((a+1))
 done
