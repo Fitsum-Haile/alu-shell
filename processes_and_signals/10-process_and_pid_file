@@ -2,12 +2,22 @@
 # This script creates a PID file, displays "To infinity and beyond" indefinitely,
 # handles SIGTERM and SIGINT signals, and removes the PID file on termination.
 
-echo $$ > /var/run/holbertonscript.pid
-trap 'echo "I hate the kill command"; rm -rf /var/run/holbertonscript.pid; exit' SIGTERM
-trap 'echo "Y U no love me?!"' SIGINT
-trap 'rm -rf /var/run/holbertonscript.pid; exit' SIGQUIT
-while :
-do
+PID_FILE="/var/run/myscript.pid"
+
+# Create the PID file
+echo $$ > "$PID_FILE"
+
+# Handle SIGTERM signal (kill command)
+trap 'echo "I hate the kill command"; rm -f "$PID_FILE"; exit' SIGTERM
+
+# Handle SIGINT signal (Ctrl+C)
+trap 'echo "Y U no love me?!"; rm -f "$PID_FILE"; exit' SIGINT
+
+# Handle SIGQUIT signal (Ctrl+\)
+trap 'echo "Caught SIGQUIT signal"; rm -f "$PID_FILE"; exit' SIGQUIT
+
+# Display "To infinity and beyond" indefinitely
+while true; do
     echo "To infinity and beyond"
-    sleep 2
+    sleep 1
 done
