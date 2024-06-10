@@ -1,11 +1,8 @@
 #!/usr/bin/env bash
 # a Bash script that displays To infinity and beyond indefinitely. 
 
-function display_infinity() {
-    while true; do
-        echo "To infinity and beyond"
-        sleep 2
-    done
-}
-
-display_infinity
+while true
+do
+  echo "To infinity and beyond"
+  sleep 2
+done
