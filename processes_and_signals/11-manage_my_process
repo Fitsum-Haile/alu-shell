@@ -1,20 +1,23 @@
 #!/usr/bin/env bash
 # This Bash script manages a process called "manage_my_process"
 
+PROCESS_NAME="manage_my_process"
+PIDFILE="/var/run/${PROCESS_NAME}.pid"
+
 case "$1" in
   start)
-    echo "manage_my_process started"
-    touch /var/run/my_process.pid
+    echo "${PROCESS_NAME} started"
+    touch "${PIDFILE}"
     ;;
   stop)
-    echo "manage_my_process stopped"
-    rm -f /var/run/my_process.pid
+    echo "${PROCESS_NAME} stopped"
+    rm -f "${PIDFILE}"
     ;;
   restart)
-    echo "manage_my_process restarted"
+    echo "${PROCESS_NAME} restarted"
     ;;
   *)
-    echo "Usage: manage_my_process {start|stop|restart}"
+    echo "Usage: ${PROCESS_NAME} {start|stop|restart}"
     exit 1
     ;;
 esac
